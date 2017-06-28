@@ -1,0 +1,670 @@
+/*
+Copyright 2017 Doxee S.p.A.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+@import "utility/breakpoints";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:400,500,700");
+
+$palette: (
+        green: #65D67D,
+        yellow: #FDD45B,
+        blue: #0385E8,
+        black: black,
+        inactive: #9B9A9A,
+
+        /** NAV **/
+        nav-text: black,
+        nav-accent: #65D67D,
+        nav-inactive: #B0B0AF,
+        dropdown-bg: #FDD45B,
+
+        /** GRAFICI **/
+        t_line: #F54E34,
+        t_col: #F2AFAA,
+        u_line: #4CC5FF,
+        u_col: #B3EDFF,
+        l_line: #F8D43B,
+        l_col: #F4E6AB,
+        limit_area: #E9F2E7,
+
+
+)!default;
+
+
+//**********************************************************************
+// Typography
+//**********************************************************************
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+body, button, select {
+    font-family:'Roboto Mono';
+}
+
+.number, .symbol {
+    font-family:'Roboto';
+    font-size: 6.5rem;
+}
+
+#luminosita-card {
+
+    .number {
+        font-size: 6.5rem;
+    }
+    .symbol {
+        font-size: 2rem;
+    }
+}
+
+.value-title {
+    text-align: left;
+    padding-top: 15px;
+    margin: 0 auto;
+    max-width: 250px;
+    font-size: 1.2rem;
+}
+
+//**********************************************************************
+// Preloader
+//**********************************************************************
+
+.preloader {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+
+    img {
+        margin-top: 100px;
+    }
+}
+
+//**********************************************************************
+// MISSING DATA
+//**********************************************************************
+
+.missing-data {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  img {
+    margin-top: 100px;
+  }
+}
+
+//**********************************************************************
+// Other
+//**********************************************************************
+
+.warning {
+    img {
+        max-height: 115px !important;
+        max-width: 115px !important;
+        width: 115px !important;
+        height: 115px !important
+    }
+}
+
+
+
+//**********************************************************************
+// Buttons Graph
+//**********************************************************************
+.btn-chart-graph {
+    background: none;
+    border: none;
+    color: map-get($palette, inactive);
+    cursor: pointer;
+
+    span {
+        border-bottom: none;
+        padding-bottom: 4px;
+    }
+
+    div {
+        display: inline-block;
+        height: 2px;
+        width: 12px;
+        margin-bottom: 4px;
+    }
+}
+
+.btn-chart-graph:hover{
+    span {
+        color: black;
+        border-bottom: 1px solid black;
+
+        -webkit-transition: color 500ms ease-in-out;
+        -moz-transition: color 500ms ease-in-out;
+        -o-transition: color 500ms ease-in-out;
+        transition: color 500ms ease-in-out;
+    }
+}
+.btn-chart-graph:focus {
+    outline:0;
+}
+
+.btn-chart-graph.active{
+    span {
+        color: black;
+        border-bottom: 1px solid black;
+        -webkit-transition: color 500ms ease-in-out;
+        -moz-transition: color 500ms ease-in-out;
+        -o-transition: color 500ms ease-in-out;
+        transition: color 500ms ease-in-out;
+    }
+}
+
+#btn-graph-temperatura {
+    div {
+        background-color: map-get($palette, blue);
+    }
+}
+
+#btn-graph-umidita {
+    div {
+        background-color: map-get($palette, green);
+    }
+}
+
+#btn-graph-luminosita {
+    div {
+        background-color: map-get($palette, yellow);
+    }
+}
+
+
+/**************/
+/*** HEADER ***/
+/**************/
+
+/*** LOGO ***/
+#logo {
+    width: 200px;
+    height: auto;
+}
+
+#mascot {
+    width: 300px;
+    height: auto;
+}
+
+/*** NAVBAR ***/
+
+.nav-tabs {
+    border-bottom: transparent;
+    margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+.nav-link {
+    color: map-get($palette, nav-inactive);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.nav-link.active {
+    color: map-get($palette, nav-text);
+    border-bottom: 8px solid;
+    border-color: transparent transparent map-get($palette, nav-accent) transparent!important;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+
+.select-ar {
+
+
+    select {
+        height: 54px!important;
+        width: 100%;
+        border: none;
+        color: map-get($palette, black)!important;
+    }
+
+    option {
+        background-color: map-get($palette, dropdown-bg);
+        color: map-get($palette, black);
+        height: 54px!important;
+    }
+}
+
+
+//**********************************************************************
+// School & Plant selection
+//**********************************************************************
+#row-school-plant-selection {
+
+    outline: 1.5px solid black;
+
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .school-select {
+        border-left: 1px solid black;
+    }
+
+    .plant-select {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        .row {
+
+        }
+    }
+
+    select {
+        border: none;
+        outline: none;
+
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+
+//**********************************************************************
+// Period selection
+//**********************************************************************
+
+.btn-period-selection {
+    height: auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    background: transparent;
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    border-top: transparent 8px solid;
+    border-bottom: transparent 8px solid;
+    border-right: none;
+    border-left: none;
+
+    cursor: pointer;
+    outline: none;
+
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        outline: none;
+        color: map-get($palette, nav-text);
+        border-color: transparent transparent map-get($palette, nav-accent) transparent!important;
+
+        -webkit-transition: color 500ms ease-in-out;
+        -moz-transition: color 500ms ease-in-out;
+        -o-transition: color 500ms ease-in-out;
+        transition: color 500ms ease-in-out;
+
+        -webkit-transition: border-color 500ms ease-in-out;
+        -moz-transition: border-color 500ms ease-in-out;
+        -o-transition: border-color 500ms ease-in-out;
+        transition: border-color 500ms ease-in-out;
+    }
+
+
+    &.active {
+        outline: none;
+        color: map-get($palette, nav-text);
+        border-color: transparent transparent map-get($palette, nav-accent) transparent!important;
+
+        -webkit-transition: color 500ms ease-in-out;
+        -moz-transition: color 500ms ease-in-out;
+        -o-transition: color 500ms ease-in-out;
+        transition: color 500ms ease-in-out;
+
+        -webkit-transition: border-color 500ms ease-in-out;
+        -moz-transition: border-color 500ms ease-in-out;
+        -o-transition: border-color 500ms ease-in-out;
+        transition: border-color 500ms ease-in-out;
+    }
+}
+
+//**********************************************************************
+// info sections
+//**********************************************************************
+.info-section {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+//**********************
+// data-now
+//**********************
+#info-now {
+    .info-card {
+        $iconWidth: 60px;
+        $iconHeight: 60px;
+
+        // Icons
+        .data-icon-container {
+            position: relative;
+            margin-bottom: -20px;
+
+            .data-icon {
+                display: inline-block;
+                height: $iconHeight;
+                width: $iconWidth;
+
+                img {
+                    max-height: 100%;
+                    max-width: 100%;
+                }
+
+                &.warning {
+                    position: absolute;
+                    right: 57px;
+                    top: -34px;
+
+                    * {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        // Value
+        .data-value {
+            margin-bottom: -15px;
+        }
+
+        // Progress bar
+        .data-progressbar {
+            border: 1px solid black;
+            border-radius: 0px;
+            max-width: 250px;
+            height: 45px;
+            margin: 0  auto;
+
+
+            .ui-progressbar-value {
+
+                border: none;
+                border-radius: 0px;
+                margin-left: 1px;
+                height: 45px;
+
+            }
+        }
+
+
+        #temepeartura-progressbar {
+            .ui-progressbar-value {
+                background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_temperatura-80.jpg");
+                background-position: left;
+            }
+        }
+
+
+        #umidita-progressbar {
+            .ui-progressbar-value {
+                background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_umidita-80.jpg");
+                background-position: left;
+            }
+        }
+
+
+        #luminosita-progressbar {
+            .ui-progressbar-value {
+                background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_luminosita-80.jpg");
+                background-position: left;
+            }
+        }
+
+
+        // Title
+
+
+
+        // Warning Icons
+        &.warning-high {
+            .data-icon-container {
+                .data-icon.warning {
+                    .high {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        &.warning-low {
+            .data-icon-container {
+                .data-icon.warning {
+                    .low {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//**********************
+// data-past
+//**********************
+
+.btn-chart-export {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+
+.export-buttons-container {
+    z-index: 2;
+
+    .amcharts-export-menu {
+        opacity: 1 !important;
+        z-index: 2;
+    }
+}
+
+
+
+
+.charts-container {
+    z-index: 1;
+}
+
+
+.chart {
+    display: none;
+    height: 500px;
+    width: 100%;
+
+    &.active {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************/
+/*** Dati Presenti ***/
+/*********************/
+
+.dashboard-data {
+    .num-icon-container {
+        $numIconContainerHeight: 100px;
+
+        $iconWidth: 60px;
+        $iconHeight: 60px;
+
+        text-align: right;
+        position: relative;
+
+        .icon {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            -o-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+
+            //float: left;
+            height: $iconHeight;
+            width: $iconWidth;
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+
+        .number-container {
+            display: inline-block;
+            //margin-left: $iconWidth;
+            //height: $numIconContainerHeight;
+            //line-height: $numIconContainerHeight;
+
+
+        }
+    }
+
+    .progressbar {
+        .ui-progressbar-value {
+            margin: 0;
+        }
+    }
+
+    // Temperatura
+    #temepeartura_progressbar {
+        .ui-progressbar-value {
+            background-color: map-get($palette, blue);
+        }
+    }
+
+    // Umidità
+    #umidita_progressbar {
+        .ui-progressbar-value {
+            background-color: map-get($palette, green);
+        }
+    }
+
+    #luminosita_progressbar {
+        .ui-progressbar-value {
+            background-color: map-get($palette, yellow);
+        }
+    }
+
+    .value-title {
+        text-align: left;
+
+    }
+}
+
+
+/*********************/
+/*** Dati Passati  ***/
+/*********************/
+
+//*****************
+//*    Chart
+//*****************
+.amcharts-export-menu {
+    opacity: 1 !important;
+}
+
+// Square chart export button
+.export-main {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+
+    a {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+    }
+}
+
+#chart {
+    //width: 500px;
+    height: 500px;
+}
+
+#chart-export-button {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+}
+
+//*****************
+//*    Table
+//*****************
+
+.table {
+    th {
+        &:after {
+            display: none;
+            content: '' !important;
+        }
+    }
+}
+#toggle-chart-table {
+    cursor: pointer;
+    display: inline-block;
+
+    line-height: 55px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

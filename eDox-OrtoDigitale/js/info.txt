@@ -1,0 +1,76 @@
+
+- quando cambio scuola non fa la richiesta dei dati
+
+var testJson = {
+    'schoolName' : '',
+    'systemId': '',
+    'granularity' : '',
+    'ranges': {
+        'temperature': {
+            'min': '',
+            'max': ''
+        },
+        'moisture': {
+            'min': '',
+            'max': ''
+        },
+        'brightness': {
+            'min': '',
+            'max': ''
+        }
+    },
+    'data': [
+        {
+            "date": "11-05-2017",
+            "temperature": 8,
+            "moisture": 5,
+            "brightness": 3
+        },
+        {
+            "date": "12-05-2017",
+            "temperature": 6,
+            "moisture": 7,
+            "brightness": 5
+        },
+        {
+            "date": "13-05-2017",
+            "temperature": 2,
+            "moisture": 3,
+            "brightness": 6
+        }
+    ]};
+
+
+var asdasdas = {
+    'granularity': int (0 --> giornaliera, 1 --> settimanale/mensile, 2 --> annuale),
+    'schoolName': string,
+    'systemId': string
+    'range':{
+        'temperature':{
+            'min': int,
+            'max': int
+        },
+        'moisture':{
+            'min': int,
+            'max': int
+        }
+        'brightness':{
+            'min': int,
+            'max': int
+        }
+    }
+# campionamento uno all'ora
+‘data’: [
+    {
+“date”: string (“11-05-2017 h" --> per granularity 0, “11-05-2017" --> per granularity 1, “05-2017" --> per granularity 2)
+“temperature”: int,
+“moisture”: int,
+“brightness”: int
+},
+{
+“date”: string (“11-05-2017 h" --> per granularity 0, “11-05-2017" --> per granularity 1, “05-2017" --> per granularity 2),
+           “temperature”: int,
+           “moisture”: int,
+           “brightness”: int
+}
+];

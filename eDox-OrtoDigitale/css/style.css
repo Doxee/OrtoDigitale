@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:400,500,700");
+html, body {
+  position: relative;
+  height: 100%; }
+
+body, button, select {
+  font-family: 'Roboto Mono'; }
+
+.number, .symbol {
+  font-family: 'Roboto';
+  font-size: 6.5rem; }
+
+#luminosita-card .number {
+  font-size: 6.5rem; }
+#luminosita-card .symbol {
+  font-size: 2rem; }
+
+.value-title {
+  text-align: left;
+  padding-top: 15px;
+  margin: 0 auto;
+  max-width: 250px;
+  font-size: 1.2rem; }
+
+.preloader {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; }
+  .preloader img {
+    margin-top: 100px; }
+
+.missing-data {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; }
+  .missing-data img {
+    margin-top: 100px; }
+
+.warning img {
+  max-height: 115px !important;
+  max-width: 115px !important;
+  width: 115px !important;
+  height: 115px !important; }
+
+.btn-chart-graph {
+  background: none;
+  border: none;
+  color: #9B9A9A;
+  cursor: pointer; }
+  .btn-chart-graph span {
+    border-bottom: none;
+    padding-bottom: 4px; }
+  .btn-chart-graph div {
+    display: inline-block;
+    height: 2px;
+    width: 12px;
+    margin-bottom: 4px; }
+
+.btn-chart-graph:hover span {
+  color: black;
+  border-bottom: 1px solid black;
+  -webkit-transition: color 500ms ease-in-out;
+  -moz-transition: color 500ms ease-in-out;
+  -o-transition: color 500ms ease-in-out;
+  transition: color 500ms ease-in-out; }
+
+.btn-chart-graph:focus {
+  outline: 0; }
+
+.btn-chart-graph.active span {
+  color: black;
+  border-bottom: 1px solid black;
+  -webkit-transition: color 500ms ease-in-out;
+  -moz-transition: color 500ms ease-in-out;
+  -o-transition: color 500ms ease-in-out;
+  transition: color 500ms ease-in-out; }
+
+#btn-graph-temperatura div {
+  background-color: #0385E8; }
+
+#btn-graph-umidita div {
+  background-color: #65D67D; }
+
+#btn-graph-luminosita div {
+  background-color: #FDD45B; }
+
+/**************/
+/*** HEADER ***/
+/**************/
+/*** LOGO ***/
+#logo {
+  width: 200px;
+  height: auto; }
+
+#mascot {
+  width: 300px;
+  height: auto; }
+
+/*** NAVBAR ***/
+.nav-tabs {
+  border-bottom: transparent;
+  margin-bottom: -1px; }
+
+.nav-tabs .nav-link {
+  border: none; }
+
+.nav-link {
+  color: #B0B0AF;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px; }
+
+.nav-link.active {
+  color: black;
+  border-bottom: 8px solid;
+  border-color: transparent transparent #65D67D transparent !important; }
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: black; }
+
+.select-ar select {
+  height: 54px !important;
+  width: 100%;
+  border: none;
+  color: black !important; }
+.select-ar option {
+  background-color: #FDD45B;
+  color: black;
+  height: 54px !important; }
+
+#row-school-plant-selection {
+  outline: 1.5px solid black; }
+  #row-school-plant-selection .container {
+    padding-left: 0px;
+    padding-right: 0px; }
+  #row-school-plant-selection .school-select {
+    border-left: 1px solid black; }
+  #row-school-plant-selection .plant-select {
+    border-left: 1px solid black;
+    border-right: 1px solid black; }
+  #row-school-plant-selection select {
+    border: none;
+    outline: none;
+    cursor: pointer; }
+    #row-school-plant-selection select:focus {
+      outline: none; }
+
+.btn-period-selection {
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-top: transparent 8px solid;
+  border-bottom: transparent 8px solid;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  outline: none; }
+  .btn-period-selection:focus {
+    outline: none; }
+  .btn-period-selection:hover {
+    outline: none;
+    color: black;
+    border-color: transparent transparent #65D67D transparent !important;
+    -webkit-transition: color 500ms ease-in-out;
+    -moz-transition: color 500ms ease-in-out;
+    -o-transition: color 500ms ease-in-out;
+    transition: color 500ms ease-in-out;
+    -webkit-transition: border-color 500ms ease-in-out;
+    -moz-transition: border-color 500ms ease-in-out;
+    -o-transition: border-color 500ms ease-in-out;
+    transition: border-color 500ms ease-in-out; }
+  .btn-period-selection.active {
+    outline: none;
+    color: black;
+    border-color: transparent transparent #65D67D transparent !important;
+    -webkit-transition: color 500ms ease-in-out;
+    -moz-transition: color 500ms ease-in-out;
+    -o-transition: color 500ms ease-in-out;
+    transition: color 500ms ease-in-out;
+    -webkit-transition: border-color 500ms ease-in-out;
+    -moz-transition: border-color 500ms ease-in-out;
+    -o-transition: border-color 500ms ease-in-out;
+    transition: border-color 500ms ease-in-out; }
+
+.info-section {
+  display: none; }
+  .info-section.active {
+    display: block; }
+
+#info-now .info-card .data-icon-container {
+  position: relative;
+  margin-bottom: -20px; }
+  #info-now .info-card .data-icon-container .data-icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px; }
+    #info-now .info-card .data-icon-container .data-icon img {
+      max-height: 100%;
+      max-width: 100%; }
+    #info-now .info-card .data-icon-container .data-icon.warning {
+      position: absolute;
+      right: 57px;
+      top: -34px; }
+      #info-now .info-card .data-icon-container .data-icon.warning * {
+        display: none; }
+#info-now .info-card .data-value {
+  margin-bottom: -15px; }
+#info-now .info-card .data-progressbar {
+  border: 1px solid black;
+  border-radius: 0px;
+  max-width: 250px;
+  height: 45px;
+  margin: 0  auto; }
+  #info-now .info-card .data-progressbar .ui-progressbar-value {
+    border: none;
+    border-radius: 0px;
+    margin-left: 1px;
+    height: 45px; }
+#info-now .info-card #temepeartura-progressbar .ui-progressbar-value {
+  background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_temperatura-80.jpg");
+  background-position: left; }
+#info-now .info-card #umidita-progressbar .ui-progressbar-value {
+  background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_umidita-80.jpg");
+  background-position: left; }
+#info-now .info-card #luminosita-progressbar .ui-progressbar-value {
+  background-image: url("https://d184azjhqpbdyr.cloudfront.net/svg/bg_luminosita-80.jpg");
+  background-position: left; }
+#info-now .info-card.warning-high .data-icon-container .data-icon.warning .high {
+  display: inline-block; }
+#info-now .info-card.warning-low .data-icon-container .data-icon.warning .low {
+  display: inline-block; }
+
+.btn-chart-export {
+  display: none; }
+  .btn-chart-export.active {
+    display: block; }
+
+.export-buttons-container {
+  z-index: 2; }
+  .export-buttons-container .amcharts-export-menu {
+    opacity: 1 !important;
+    z-index: 2; }
+
+.charts-container {
+  z-index: 1; }
+
+.chart {
+  display: none;
+  height: 500px;
+  width: 100%; }
+  .chart.active {
+    display: block; }
+
+/*********************/
+/*** Dati Presenti ***/
+/*********************/
+.dashboard-data .num-icon-container {
+  text-align: right;
+  position: relative; }
+  .dashboard-data .num-icon-container .icon {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    height: 60px;
+    width: 60px; }
+    .dashboard-data .num-icon-container .icon img {
+      max-height: 100%;
+      max-width: 100%; }
+  .dashboard-data .num-icon-container .number-container {
+    display: inline-block; }
+.dashboard-data .progressbar .ui-progressbar-value {
+  margin: 0; }
+.dashboard-data #temepeartura_progressbar .ui-progressbar-value {
+  background-color: #0385E8; }
+.dashboard-data #umidita_progressbar .ui-progressbar-value {
+  background-color: #65D67D; }
+.dashboard-data #luminosita_progressbar .ui-progressbar-value {
+  background-color: #FDD45B; }
+.dashboard-data .value-title {
+  text-align: left; }
+
+/*********************/
+/*** Dati Passati  ***/
+/*********************/
+.amcharts-export-menu {
+  opacity: 1 !important; }
+
+.export-main {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important; }
+  .export-main a {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important; }
+
+#chart {
+  height: 500px; }
+
+#chart-export-button {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 55px; }
+
+.table th:after {
+  display: none;
+  content: '' !important; }
+
+#toggle-chart-table {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 55px; }
+  #toggle-chart-table:hover {
+    text-decoration: underline; }
+
+/*# sourceMappingURL=style.css.map */
