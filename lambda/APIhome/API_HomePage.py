@@ -15,6 +15,7 @@ limitations under the License.
 """
 import json
 import requests
+import traceback
 
 
 def execute_query_to_uri(uri, index, doc_type, size=5, query=""):
@@ -26,15 +27,18 @@ def execute_query_to_uri(uri, index, doc_type, size=5, query=""):
 
 def genSchoolsPull(url):
     schools = {}
-    res = json.loads(execute_query_to_uri(url, "ortocedu", "plantsDevice", size=1000).content)
-    for h in res["hits"]["hits"]:
-        if h["_source"]["locationName"] not in schools.keys():
-            schools[h["_source"]["locationName"]] = {"sensors": []}
-        plant = json.loads(execute_query_to_uri(url, "ortocedu", "plants", query='(_id:{})'.format(
-            h["_source"]["systemId"].decode("utf-8"))).content)["hits"]["hits"][0]
-        schools[h["_source"]["locationName"]]["sensors"].append(
-            {"systemId": h["_source"]["systemId"].decode("utf-8"), "plantName": plant["_source"]["name"]})
-    print(json.dumps(schools, indent=2))
+    try:
+        res = json.loads(execute_query_to_uri(url, "ortocedu", "plantsDevice", size=1000).content)
+        for h in res["hits"]["hits"]:
+            if h["_source"]["locationName"] not in schools.keys():
+                schools[h["_source"]["locationName"]] = {"sensors": []}
+            plant = json.loads(execute_query_to_uri(url, "ortocedu", "plants", query='(_id:{})'.format(
+                h["_source"]["systemId"].decode("utf-8"))).content)["hits"]["hits"][0]
+            schools[h["_source"]["locationName"]]["sensors"].append(
+                {"systemId": h["_source"]["systemId"].decode("utf-8"), "plantName": plant["_source"]["name"]})
+        print(json.dumps(schools, indent=2))
+    except ValueError:
+        print(traceback.format_exc())
     return schools
 
 

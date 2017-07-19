@@ -53,7 +53,7 @@ def main():
     schools = genSchoolsPull(uri)
     # print(json.dumps(schools["Scuola primaria Balletti-Mancasale"], indent=2))
     for k in schools.keys():
-        print "--------------"+k+"--------------"
+        print("--------------"+k+"--------------")
         getplantsDataStat(uri, schools[k])
 
 

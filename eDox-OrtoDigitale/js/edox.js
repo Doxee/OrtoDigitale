@@ -632,7 +632,7 @@ function eDox() {
             method: 'GET',
             // url: "./api/api_request_handler.php", // For LOCAL Development
             // data: {target_url: "https://ortodigitale.doxee.com/home"}, // For LOCAL Development
-            url: "https://ortodigitale.doxee.com/home",
+            url: "https://ortodigitale.doxee.com/api/home",
             data: {}
         }).done(function (msg, xhr) {
             try {
@@ -680,7 +680,6 @@ function eDox() {
 
         // Build the request parameters object
         var requestParameters = {};
-        // requestParameters.target_url = "https://ortodigitale.doxee.com/data/";   // For LOCAL Development
         requestParameters.school = school;
         requestParameters.systemId = systemId;
 
@@ -705,7 +704,7 @@ function eDox() {
         $.ajax({
             method: 'GET',
             // url: "./api/api_request_handler.php", // For LOCAL Development
-            url: "https://ortodigitale.doxee.com/data/",
+            url: "https://ortodigitale.doxee.com/api/data/",
             data: requestParameters
         }).done(function (msg, xhr) {
             try {

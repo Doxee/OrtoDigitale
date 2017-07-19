@@ -17,6 +17,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 from calendar import monthrange
+import traceback
 
 
 def execute_query_to_uri(uri, method, index, doc_type, query="", sort="", querystring=None, data=""):
@@ -27,7 +28,7 @@ def execute_query_to_uri(uri, method, index, doc_type, query="", sort="", querys
     if sort != "":
         querystring["sort"] = "{}".format(sort)
     resp = requests.request(method, '{}/{}/{}/_search'.format(uri, index, doc_type), params=querystring, data=data)
-    print resp.url
+    print(resp.url)
     return resp
 
 
@@ -36,9 +37,15 @@ def retrieve_every_entry_item_for_a_query(uri, index, doc_type, size=50, query="
     start_index = 0
     total = 1
     hits = []
+    resp = {}
     while start_index < total:
-        resp = json.loads(execute_query_to_uri(uri, "GET", index, doc_type, query=query, sort=sort,
-                                               querystring={"from": start_index, "pretty": "", "size": size}).content)
+        try:
+            resp = json.loads(execute_query_to_uri(uri, "GET", index, doc_type, query=query, sort=sort,
+                                                   querystring={"from": start_index, "pretty": "",
+                                                                "size": size}).content)
+        except ValueError:
+            print(traceback.format_exc())
+
         if "hits" in resp:
             hits.extend(resp["hits"]["hits"])
             total = resp["hits"]["total"]
@@ -137,8 +144,8 @@ def getMaxAvgMinBetweenDates(url, params):
             lower_limit_date = datetime.strptime('{}:00,01'.format(date_from.strftime("%d.%m.%Y %H:%M")),
                                                  '%d.%m.%Y %H:%M:%S,%f')
             upper_limit_date = tmp_date
-            print lower_limit_date
-            print upper_limit_date
+            print(lower_limit_date)
+            print(upper_limit_date)
         elif "min_period" in params and params["min_period"] == "M":
             tmp_date = datetime.strptime(
                 '01.{}.{} 00:00:00'.format(date_from.month + 1 if date_from.month + 1 <= 12 else "01",
@@ -209,8 +216,8 @@ if __name__ == "__main__":
     # print(lambda_handler(
     #     {"query": {"school": "Scuola dell\u2019infanzia Diana", "systemId": "a0143d7cbf20", "min_period": "H"}},
     #     {"context": {}}))
-    print (lambda_handler({"query": {"school": "Scuola dell'infanzia Diana", "systemId": "a0143d7cbf20",
-                                     "date_from": "21.05.2017 00:00", "date_to": "21.05.2017 23:59",
-                                     "min_period": "G"}}, {"context": {}}))
+    print(lambda_handler({"query": {"school": "Scuola dell'infanzia Diana", "systemId": "a0143d7cbf20",
+                                    "date_from": "21.05.2017 00:00", "date_to": "21.05.2017 23:59",
+                                    "min_period": "G"}}, {"context": {}}))
     # print(lambda_handler({"query": {"school": "Scuola dell\u2019infanzia Diana", "systemId": "a0143d7cbf20",
     #                           "date_from": "20.05.2016 09:00", "min_period": "M"}}, {"context": {}}))
